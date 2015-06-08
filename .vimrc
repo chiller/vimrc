@@ -17,12 +17,14 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
+Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-monokai'
 
 call vundle#end()
 filetype plugin indent on
 
+" FZF
+set rtp+=~/.fzf
 
 " Colorscheme
 colorscheme monokai
