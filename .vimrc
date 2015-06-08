@@ -19,7 +19,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sickill/vim-monokai'
-
+Plugin 'nvie/vim-flake8'
+Plugin 'msanders/snipmate.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -28,5 +29,10 @@ set rtp+=~/.fzf
 
 " Colorscheme
 colorscheme monokai
+
+" Flake8
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_show_quickfix=0
+let g:flake8_show_in_gutter=1
 
 syntax on
