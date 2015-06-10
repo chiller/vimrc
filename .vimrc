@@ -28,8 +28,6 @@ filetype plugin indent on
 set rtp+=/usr/local/Cellar/fzf/0.9.4-1
 nnoremap <C-v> :FZF<CR>
 
-" Colorscheme
-colorscheme monokai
 
 " Flake8
 autocmd BufWritePost *.py call Flake8()
@@ -38,3 +36,18 @@ let g:flake8_show_in_gutter=1
 
 syntax on
 set ruler
+set number
+set term=screen-256color
+set t_Co=256
+syntax enable
+set background=dark
+
+set ts=4
+set autoindent
+set expandtab
+set shiftwidth=4
+set cursorline
+set showmatch
+
+
+colorscheme monokai
