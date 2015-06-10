@@ -14,6 +14,10 @@ Vim configuration
 
 https://github.com/junegunn/fzf
 
+from inside vim hit ctrl V to search
+from outside do vim **
+
+
 4. Gitgutter
 
 https://github.com/airblade/vim-gitgutter
