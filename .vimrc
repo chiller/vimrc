@@ -25,7 +25,8 @@ call vundle#end()
 filetype plugin indent on
 
 " FZF
-set rtp+=~/.fzf
+set rtp+=/usr/local/Cellar/fzf/0.9.4-1
+nnoremap <C-v> :FZF<CR>
 
 " Colorscheme
 colorscheme monokai
@@ -36,3 +37,4 @@ let g:flake8_show_quickfix=0
 let g:flake8_show_in_gutter=1
 
 syntax on
+set ruler
