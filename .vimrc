@@ -22,6 +22,7 @@ Plugin 'sickill/vim-monokai'
 Plugin 'nvie/vim-flake8'
 Plugin 'msanders/snipmate.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
 
