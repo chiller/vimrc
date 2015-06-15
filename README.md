@@ -22,4 +22,19 @@ from outside do vim **
 
 https://github.com/airblade/vim-gitgutter
 
+5. Ctags
+http://andrew.stwrt.ca/posts/vim-ctags/
+brew install ctags
+#inside project folder
+ctags -R -f ./.git/tags .
+#you will want to reindex this occasionally, maybe on git commit
+#inside vim
+<C ]> jump to definition
+<C t> go back up in stack
+:tag function name - jump to definition
+:tag /^asserts_*
+
+:TagbarToggle
+
+
 
