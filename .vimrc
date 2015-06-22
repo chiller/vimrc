@@ -23,6 +23,9 @@ Plugin 'nvie/vim-flake8'
 Plugin 'msanders/snipmate.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tommcdo/vim-fugitive-blame-ext'
+Plugin 'vim-scripts/TortoiseTyping'
 call vundle#end()
 filetype plugin indent on
 
@@ -55,5 +58,10 @@ set shiftwidth=4
 set cursorline
 set showmatch
 
-
 colorscheme monokai
+set clipboard=unnamed
+
+set backspace=indent,eol,start
+nmap <F8> :TagbarToggle<CR>
+nmap <F6> :Gblame<CR>
+
