@@ -24,6 +24,8 @@ https://github.com/airblade/vim-gitgutter
 
 5. Ctags
 http://andrew.stwrt.ca/posts/vim-ctags/
+
+```
 brew install ctags
 #inside project folder
 ctags -R -f ./.git/tags .
@@ -35,6 +37,6 @@ ctags -R -f ./.git/tags .
 :tag /^asserts_*
 
 :TagbarToggle
-
+```
 
 
