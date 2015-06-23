@@ -70,3 +70,4 @@ set backspace=indent,eol,start
 nmap <F8> :TagbarToggle<CR>
 nmap <F6> :Gblame<CR>
 
+nnoremap <F5> :set relativenumber!<cr>
