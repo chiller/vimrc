@@ -26,6 +26,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
 Plugin 'vim-scripts/TortoiseTyping'
+Plugin 'Shougo/neocomplete.vim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -42,6 +44,9 @@ set rtp+=~/.vimrc/plugin
 autocmd BufWritePost *.py call Flake8()
 let g:flake8_show_quickfix=0
 let g:flake8_show_in_gutter=1
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 syntax on
 set ruler
