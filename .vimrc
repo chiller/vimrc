@@ -71,3 +71,10 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F6> :Gblame<CR>
 
 nnoremap <F5> :set relativenumber!<cr>
+
+" Disable arrow keys
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
