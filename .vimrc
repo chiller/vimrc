@@ -78,3 +78,5 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+set hlsearch
+highlight Search  ctermfg=Black ctermbg=Red cterm=NONE
