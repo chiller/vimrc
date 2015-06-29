@@ -1,5 +1,18 @@
 # vimrc
-Vim configuration
+
+##Cheatsheet
+
+F5 relative line numbers
+F6 git blame
+F7 show recent files
+F8 tagbar toggle
+
+<C ]> jump to definition
+<C t> go up definition tree
+
+
+
+#Vim configuration
 
 
 1. Vundle Package Manager

@@ -78,5 +78,8 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+map <F7> :browse old<CR>
+
+
 set hlsearch
 highlight Search  ctermfg=Black ctermbg=Red cterm=NONE
