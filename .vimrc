@@ -18,7 +18,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'sickill/vim-monokai'
 Plugin 'nvie/vim-flake8'
 Plugin 'msanders/snipmate.vim'
 Plugin 'majutsushi/tagbar'
@@ -27,6 +26,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
 Plugin 'vim-scripts/TortoiseTyping'
 Plugin 'Shougo/neocomplete.vim'
+
+" Color schemes
+Plugin 'yantze/pt_black'
+Plugin 'sickill/vim-sunburst'
+Plugin 'sickill/vim-monokai'
+
+" colorscheme monokai
+colorscheme sunburst
 
 call vundle#end()
 filetype plugin indent on
@@ -63,7 +70,6 @@ set shiftwidth=4
 set cursorline
 set showmatch
 
-colorscheme monokai
 set clipboard=unnamed
 
 set backspace=indent,eol,start
