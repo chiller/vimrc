@@ -89,3 +89,5 @@ map <Down> <Nop>
 
 set hlsearch
 highlight Search  ctermfg=Black ctermbg=Red cterm=NONE
+" keep cursor centered on screen
+set so=999
