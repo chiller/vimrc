@@ -2,14 +2,18 @@
 
 ##Cheatsheet
 
+F4 show recent files
 F5 relative line numbers
 F6 git blame
-F7 show recent files
 F8 tagbar toggle
 
 <C ]> jump to definition
 <C t> go up definition tree
 
+<C O> whilst in insert mode puts you in command mode for one key press only
+
+Orgmode commands:
+https://github.com/jceb/vim-orgmode/blob/master/doc/orgguide.txt
 
 
 #Vim configuration
@@ -21,7 +25,6 @@ F8 tagbar toggle
 
    Launch vim and run :PluginInstall
 
-2. Monokai color scheme
 
 3. Fzf
 

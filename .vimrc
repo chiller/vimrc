@@ -32,6 +32,16 @@ Plugin 'yantze/pt_black'
 Plugin 'sickill/vim-sunburst'
 Plugin 'sickill/vim-monokai'
 
+" Org-mode
+" Speeddating for incrementing dates
+Plugin 'tpope/vim-speeddating'
+" For linking in text
+" Make sure to edit ~/.vim/bundle/utl.vim/plugin/utl_rc.vim 
+" to enable browser open
+Plugin 'vim-scripts/utl.vim'
+Plugin 'vim-scripts/SyntaxRange'
+Plugin 'jceb/vim-orgmode'
+
 " colorscheme monokai
 colorscheme sunburst
 
