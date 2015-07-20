@@ -101,3 +101,9 @@ set hlsearch
 highlight Search  ctermfg=Black ctermbg=Red cterm=NONE
 " keep cursor centered on screen
 set so=999
+
+
+" Ag for Ack
+" don't forget to 
+" brew install the_silver_searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'
