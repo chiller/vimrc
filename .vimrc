@@ -18,7 +18,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'nvie/vim-flake8'
+Plugin 'andviro/flake8-vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
@@ -26,6 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
 Plugin 'vim-scripts/TortoiseTyping'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'vim-scripts/mru.vim'
 
 " Color schemes
 Plugin 'yantze/pt_black'
@@ -58,11 +59,12 @@ nnoremap <C-v> :FZF<CR>
 set rtp+=~/.vimrc/plugin
 
 " Flake8
-autocmd BufWritePost *.py call Flake8()
-let g:flake8_show_quickfix=0
-let g:flake8_show_in_gutter=0
-let g:flake8_show_in_file=1
-
+" autocmd BufWritePost *.py call Flake8()
+" let g:flake8_show_quickfix=0
+" let g:flake8_show_in_gutter=0
+" let g:flake8_show_in_file=1
+let g:PyFlakeSigns = 1 
+let g:PyFlakeCWindow = 0 
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
 

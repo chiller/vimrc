@@ -27,6 +27,6 @@ complete -F _complete_ssh_hosts ssh
 alias ll="ls -ahl"
 alias gs="git status"
 alias gp="git pull"
-alias ge="vim `git diff --name-only | tr '\n' ' ' `"
+alias ge="git edit"
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
