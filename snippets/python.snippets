@@ -1,2 +1,20 @@
 snippet ip
 	import pudb; pudb.set_trace()
+
+snippet pbrowse
+	self.pool.get("$1").browse(
+		cr, uid, $2, context=context
+	)$0
+
+snippet psearch
+	self.pool.get("$1").search(
+		cr, uid, 
+		[$2], 
+		context=context
+	)$0
+
+snippet pread
+	self.pool.get("$1").browse(
+		cr, uid, $2, [$3], context=context
+	)$0
+

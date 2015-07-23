@@ -19,7 +19,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'andviro/flake8-vim'
-Plugin 'msanders/snipmate.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
@@ -27,6 +26,13 @@ Plugin 'tommcdo/vim-fugitive-blame-ext'
 Plugin 'vim-scripts/TortoiseTyping'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'vim-scripts/mru.vim'
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 " Color schemes
 Plugin 'yantze/pt_black'
@@ -109,3 +115,8 @@ set so=999
 " don't forget to 
 " brew install the_silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" when you open a file, open it at the line you were last at
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
