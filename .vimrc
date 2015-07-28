@@ -1,5 +1,5 @@
 " Use Vundle as plugin manager
-" 1. 
+" 1.
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
 " 2.
@@ -122,3 +122,19 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" remove spaces on blank lines after save
+autocmd BufWritePre * :%s/\s\+$//e
+
+function! GetTestPath()
+    let testpath = expand('%:p')
+    let testpath = substitute(testpath, "/tests/", "/", "")
+    let testpath = substitute(testpath, ".py", "", "")
+    let pathlist = split(testpath, '/')
+    execute "normal! ?class\<cr>w\"zyw\<C-O>"
+    execute "normal! ?    def\<cr>2w\"xyw\<C-O>"
+    let pathlist = [pathlist[-2], pathlist[-1], @z, @x]
+    let @+ = join(pathlist, ".")
+    echom "Test path copied to clipboard"
+endfunction
+command! GT call GetTestPath()
