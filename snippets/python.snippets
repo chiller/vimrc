@@ -14,7 +14,7 @@ snippet psearch
 	)$0
 
 snippet pread
-	self.pool.get("$1").browse(
+	self.pool.get("$1").read(
 		cr, uid, $2, [$3], context=context
 	)$0
 

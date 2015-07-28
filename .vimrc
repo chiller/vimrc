@@ -26,7 +26,9 @@ Plugin 'tommcdo/vim-fugitive-blame-ext'
 Plugin 'vim-scripts/TortoiseTyping'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'vim-scripts/mru.vim'
+Plugin 'rbgrouleff/bclose.vim'
 
+" snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -43,7 +45,7 @@ Plugin 'sickill/vim-monokai'
 " Speeddating for incrementing dates
 Plugin 'tpope/vim-speeddating'
 " For linking in text
-" Make sure to edit ~/.vim/bundle/utl.vim/plugin/utl_rc.vim 
+" Make sure to edit ~/.vim/bundle/utl.vim/plugin/utl_rc.vim
 " to enable browser open
 Plugin 'vim-scripts/utl.vim'
 Plugin 'vim-scripts/SyntaxRange'
@@ -69,8 +71,8 @@ set rtp+=~/.vimrc/plugin
 " let g:flake8_show_quickfix=0
 " let g:flake8_show_in_gutter=0
 " let g:flake8_show_in_file=1
-let g:PyFlakeSigns = 1 
-let g:PyFlakeCWindow = 0 
+let g:PyFlakeSigns = 1
+let g:PyFlakeCWindow = 0
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
 
@@ -112,7 +114,7 @@ set so=999
 
 
 " Ag for Ack
-" don't forget to 
+" don't forget to
 " brew install the_silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
