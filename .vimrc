@@ -6,6 +6,7 @@
 " Launch vim and run :PluginInstall
 
 set nocompatible              " be iMproved, required
+set hidden
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -17,6 +18,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'andviro/flake8-vim'
 Plugin 'majutsushi/tagbar'
@@ -51,6 +53,8 @@ Plugin 'vim-scripts/utl.vim'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'jceb/vim-orgmode'
 
+Plugin 'szw/vim-ctrlspace'
+
 " colorscheme monokai
 colorscheme sunburst
 
@@ -61,7 +65,7 @@ filetype plugin indent on
 set rtp+=/usr/local/Cellar/fzf/0.9.4-1
 set rtp+=/usr/local/Cellar/fzf/0.9.3
 set rtp+=~/.fzf
-nnoremap <C-v> :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 
 " Todo
 set rtp+=~/.vimrc/plugin
@@ -138,3 +142,7 @@ function! GetTestPath()
     echom "Test path copied to clipboard"
 endfunction
 command! GT call GetTestPath()
+
+" show current open file
+set statusline+=%F
+set laststatus=2
