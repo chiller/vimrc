@@ -153,5 +153,20 @@ endfunction
 command! GT call GetTestPath()
 
 " show current open file
-set statusline+=%F
-set laststatus=2
+" set statusline+=%F
+" set laststatus=2
+
+" split - opposite of J (join)
+function! SplitOnComma()
+    let current_line = line(".")
+    s/(/&??/g
+    s/)/??&/g
+    s/,/&??/g
+    s/?? */\r/g
+    let line_delta = line(".") - current_line - 1
+    execute "normal! ". line_delta   ."k"
+    execute "normal! ". line_delta .">>"
+    execute "normal! ". line_delta ."j"
+endfunction
+
+nnoremap K :call SplitOnComma()<CR>
