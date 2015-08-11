@@ -26,17 +26,26 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
 Plugin 'vim-scripts/TortoiseTyping'
-Plugin 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'rbgrouleff/bclose.vim'
 
 " snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" This is needed so ultisnips and YCM work together
+Bundle 'ervandew/supertab'
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Color schemes
 Plugin 'yantze/pt_black'
