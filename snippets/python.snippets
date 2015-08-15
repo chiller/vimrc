@@ -5,3 +5,21 @@ snippet md5
 	import md5
 	hashobj = md5.md5(result)
 	print hashobj.digest()
+
+snippet pbrowse
+	self.pool.get("$1").browse(
+		cr, uid, $2, context=context
+	)$0
+
+snippet psearch
+	self.pool.get("$1").search(
+		cr, uid,
+		[$2],
+		context=context
+	)$0
+
+snippet pread
+	self.pool.get("$1").read(
+		cr, uid, $2, [$3], context=context
+	)$0
+
