@@ -63,6 +63,8 @@ Plugin 'vim-scripts/SyntaxRange'
 Plugin 'jceb/vim-orgmode'
 
 Plugin 'szw/vim-ctrlspace'
+" quickfix open and hide
+Plugin 'milkypostman/vim-togglelist'
 
 " colorscheme monokai
 colorscheme sunburst
@@ -170,3 +172,8 @@ function! SplitOnComma()
 endfunction
 
 nnoremap K :call SplitOnComma()<CR>
+
+" Python movements
+" Previous/next function
+map } / *def <cr> :noh <CR>
+map { ? *def <cr> :noh <CR>

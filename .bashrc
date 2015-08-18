@@ -28,5 +28,6 @@ alias ll="ls -ahl"
 alias gs="git status"
 alias gp="git pull"
 alias ge="git edit"
+alias gd="git diff"
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
