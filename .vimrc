@@ -111,6 +111,7 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 nmap <F8> :TagbarToggle<CR>
 nmap <F6> :Gblame<CR>
+set relativenumber
 nnoremap <F5> :set relativenumber!<cr>
 map <F4> :browse old<CR>
 
@@ -120,7 +121,7 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-
+nnoremap <C-B> :!python % <CR>
 
 set hlsearch
 highlight Search  ctermfg=Black ctermbg=Red cterm=NONE

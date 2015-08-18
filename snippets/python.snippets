@@ -1,6 +1,11 @@
 snippet ip
 	import pudb; pudb.set_trace()
 
+snippet md5
+	import md5
+	hashobj = md5.md5(result)
+	print hashobj.digest()
+
 snippet pbrowse
 	self.pool.get("$1").browse(
 		cr, uid, $2, context=context
@@ -8,8 +13,8 @@ snippet pbrowse
 
 snippet psearch
 	self.pool.get("$1").search(
-		cr, uid, 
-		[$2], 
+		cr, uid,
+		[$2],
 		context=context
 	)$0
 
