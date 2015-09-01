@@ -155,9 +155,19 @@ function! GetTestPath()
 endfunction
 command! GT call GetTestPath()
 
-" show current open file
-" set statusline+=%F
-" set laststatus=2
+" airline
+Plugin 'bling/vim-airline'
+set laststatus=2
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_x = airline#section#create([])
+function! Strip()
+    return substitute(@*, "^\\s\\+\\|\\s\\+$","","g")[:10]
+
+endfunction
+
+let g:airline_section_y = '%{Strip()}'
+let g:airline_mode_map = { '__' : '-', 'n'  : 'N', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
 
 " split - opposite of J (join)
 function! SplitOnComma()
