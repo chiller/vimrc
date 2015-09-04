@@ -183,7 +183,8 @@ function! SplitOnComma()
 endfunction
 
 nnoremap K :call SplitOnComma()<CR>
-
+nnoremap <SPACE>  <C-w>
+nnoremap <LEADER>r :reg <CR>
 " Python movements
 " Previous/next function
 map } / *def <cr> :noh <CR>
