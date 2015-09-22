@@ -66,6 +66,10 @@ Plugin 'szw/vim-ctrlspace'
 " quickfix open and hide
 Plugin 'milkypostman/vim-togglelist'
 
+" TODO: might want to remove these
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 " colorscheme monokai
 colorscheme sunburst
 
@@ -184,8 +188,12 @@ endfunction
 
 nnoremap K :call SplitOnComma()<CR>
 nnoremap <SPACE>  <C-w>
-nnoremap <LEADER>r :reg <CR>
 " Python movements
 " Previous/next function
 map } / *def <cr> :noh <CR>
 map { ? *def <cr> :noh <CR>
+
+" LEADER MAPPINGS
+nnoremap <LEADER>r :reg <CR>
+nnoremap <LEADER>a za
+nnoremap <LEADER>` I`<ESC>A`<ESC>^
