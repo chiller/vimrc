@@ -30,6 +30,7 @@ Plugin 'vim-scripts/TortoiseTyping'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'rbgrouleff/bclose.vim'
+Plugin 'chase/vim-ansible-yaml'
 
 " snippets
 Plugin 'SirVer/ultisnips'
@@ -60,6 +61,7 @@ Plugin 'tpope/vim-speeddating'
 " to enable browser open
 Plugin 'vim-scripts/utl.vim'
 Plugin 'vim-scripts/SyntaxRange'
+" MARK FOR REMOVAL
 Plugin 'jceb/vim-orgmode'
 
 Plugin 'szw/vim-ctrlspace'
@@ -197,3 +199,5 @@ map { ? *def <cr> :noh <CR>
 nnoremap <LEADER>r :reg <CR>
 nnoremap <LEADER>a za
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
+
+:command W w
