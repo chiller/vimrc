@@ -192,8 +192,8 @@ nnoremap K :call SplitOnComma()<CR>
 nnoremap <SPACE>  <C-w>
 " Python movements
 " Previous/next function
-map } / *def <cr> :noh <CR>
-map { ? *def <cr> :noh <CR>
+" map } / *def <cr> :noh <CR>
+" map { ? *def <cr> :noh <CR>
 
 " LEADER MAPPINGS
 nnoremap <LEADER>r :reg <CR>
@@ -201,3 +201,5 @@ nnoremap <LEADER>a za
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
 
 :command W w
+" For using . in visual mode
+vnoremap . :norm.<CR>
