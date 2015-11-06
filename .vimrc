@@ -21,12 +21,10 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'andviro/flake8-vim'
-Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar' " MARK FOR REMOVAL
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
-Plugin 'vim-scripts/TortoiseTyping'
-" Plugin 'Shougo/neocomplete.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'rbgrouleff/bclose.vim'
@@ -42,7 +40,7 @@ Bundle 'ervandew/supertab'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
+let g:ycm_filetype_blacklist = { 'mkd.markdown': 1, 'text': 1 }
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -61,16 +59,21 @@ Plugin 'tpope/vim-speeddating'
 " to enable browser open
 Plugin 'vim-scripts/utl.vim'
 Plugin 'vim-scripts/SyntaxRange'
-" MARK FOR REMOVAL
-Plugin 'jceb/vim-orgmode'
 
 Plugin 'szw/vim-ctrlspace'
+set showtabline=0
 " quickfix open and hide
 Plugin 'milkypostman/vim-togglelist'
 
-" TODO: might want to remove these
-Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'mhinz/vim-startify'
+
+" slides - commands: PresentingStart n p q
+Plugin 'sotte/presenting.vim'
+Plugin 'kyuhi/vim-emoji-complete'
+
+Plugin 'easymotion/vim-easymotion'
 
 " colorscheme monokai
 colorscheme sunburst
@@ -173,8 +176,7 @@ function! Strip()
 endfunction
 
 let g:airline_section_y = '%{Strip()}'
-let g:airline_mode_map = { '__' : '-', 'n'  : 'N', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
-
+let g:airline_mode_map = { '__' : '-', 'n'  : '🐔 ', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
 " split - opposite of J (join)
 function! SplitOnComma()
     let current_line = line(".")
@@ -196,10 +198,23 @@ nnoremap <SPACE>  <C-w>
 " map { ? *def <cr> :noh <CR>
 
 " LEADER MAPPINGS
+" Show content of registers
 nnoremap <LEADER>r :reg <CR>
+" Fold unfold
 nnoremap <LEADER>a za
+" No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
+
+nnoremap <LEADER>b :!babel % | node <CR>
 
 :command W w
 " For using . in visual mode
 vnoremap . :norm.<CR>
+
+" Startify
+let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
+
+" Markdown
+let g:vim_markdown_folding_disabled=0
+autocmd FileType mkd normal zR
+autocmd FileType mkd.markdown normal zR
