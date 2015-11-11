@@ -21,21 +21,22 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'andviro/flake8-vim'
-Plugin 'majutsushi/tagbar' " MARK FOR REMOVAL
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'rbgrouleff/bclose.vim'
 Plugin 'chase/vim-ansible-yaml'
 
+" Autocomplete and snippets
+Plugin 'Valloric/YouCompleteMe'
 " snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " This is needed so ultisnips and YCM work together
 Bundle 'ervandew/supertab'
+
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -50,8 +51,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 Plugin 'yantze/pt_black'
 Plugin 'sickill/vim-sunburst'
 Plugin 'sickill/vim-monokai'
+" colorscheme monokai
+colorscheme sunburst
 
-" Org-mode
 " Speeddating for incrementing dates
 Plugin 'tpope/vim-speeddating'
 " For linking in text
@@ -62,6 +64,7 @@ Plugin 'vim-scripts/SyntaxRange'
 
 Plugin 'szw/vim-ctrlspace'
 set showtabline=0
+
 " quickfix open and hide
 Plugin 'milkypostman/vim-togglelist'
 
@@ -75,8 +78,6 @@ Plugin 'kyuhi/vim-emoji-complete'
 
 Plugin 'easymotion/vim-easymotion'
 
-" colorscheme monokai
-colorscheme sunburst
 
 call vundle#end()
 filetype plugin indent on
@@ -97,8 +98,6 @@ set rtp+=~/.vimrc/plugin
 " let g:flake8_show_in_file=1
 let g:PyFlakeSigns = 1
 let g:PyFlakeCWindow = 0
-" Neocomplete
-let g:neocomplete#enable_at_startup = 1
 
 syntax on
 set ruler
@@ -107,22 +106,20 @@ set term=screen-256color
 set t_Co=256
 syntax enable
 set background=dark
-
 set ts=4
 set autoindent
 set expandtab
 set shiftwidth=4
 set cursorline
 set showmatch
-
 set clipboard=unnamed
-
 set backspace=indent,eol,start
-nmap <F8> :TagbarToggle<CR>
-nmap <F6> :Gblame<CR>
 set relativenumber
+
+map <F4> :MRU<CR>
+nmap <F6> :Gblame<CR>
 nnoremap <F5> :set relativenumber!<cr>
-map <F4> :browse old<CR>
+nmap <F8> :noh<CR>
 
 " Disable arrow keys
 map <Left> <Nop>
@@ -130,13 +127,13 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-nnoremap <C-B> :!python % <CR>
-
+" search settings
 set hlsearch
-highlight Search  ctermfg=Black ctermbg=Red cterm=NONE
+set incsearch
+highlight Search  ctermfg=Black ctermbg=darkblue cterm=NONE
+
 " keep cursor centered on screen
 set so=999
-
 
 " Ag for Ack
 " don't forget to
@@ -177,6 +174,7 @@ endfunction
 
 let g:airline_section_y = '%{Strip()}'
 let g:airline_mode_map = { '__' : '-', 'n'  : '🐔 ', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
+
 " split - opposite of J (join)
 function! SplitOnComma()
     let current_line = line(".")
@@ -191,7 +189,11 @@ function! SplitOnComma()
 endfunction
 
 nnoremap K :call SplitOnComma()<CR>
+
+" for easier split navigation
 nnoremap <SPACE>  <C-w>
+
+" TODO: I need better python movements
 " Python movements
 " Previous/next function
 " map } / *def <cr> :noh <CR>
@@ -204,9 +206,10 @@ nnoremap <LEADER>r :reg <CR>
 nnoremap <LEADER>a za
 " No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
+nnoremap <C-B> :!python % <CR>
+nnoremap <LEADER>b :!./node-babel % <CR>
 
-nnoremap <LEADER>b :!babel % | node <CR>
-
+" for constantly mistyping :w
 :command W w
 " For using . in visual mode
 vnoremap . :norm.<CR>
