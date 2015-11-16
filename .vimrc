@@ -74,7 +74,7 @@ Plugin 'sotte/presenting.vim'
 Plugin 'kyuhi/vim-emoji-complete'
 
 Plugin 'easymotion/vim-easymotion'
-
+Plugin 'isRuslan/vim-es6'
 " colorscheme monokai
 colorscheme sunburst
 
@@ -205,7 +205,7 @@ nnoremap <LEADER>a za
 " No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
 
-nnoremap <LEADER>b :!babel % | node <CR>
+nnoremap <LEADER>b :!./node-babel %  <CR>
 
 :command W w
 " For using . in visual mode
