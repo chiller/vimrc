@@ -81,6 +81,16 @@ Plugin 'isRuslan/vim-es6'
 " colorscheme monokai
 colorscheme sunburst
 
+" Persistent undo
+Plugin 'mbbill/undotree'
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
+Plugin 'alfredodeza/chapa.vim'
+let g:chapa_default_mappings=1
+
 call vundle#end()
 filetype plugin indent on
 
@@ -209,7 +219,7 @@ nnoremap <LEADER>a za
 " No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
 nnoremap <C-B> :!python % <CR>
-nnoremap <LEADER>b :!./node-babel %  <CR>
+nnoremap <LEADER>b :!./node-babel % <CR>
 " for constantly mistyping :w
 :command W w
 " For using . in visual mode
