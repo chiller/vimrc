@@ -173,6 +173,12 @@ function! GetTestPath()
 endfunction
 command! GT call GetTestPath()
 
+function! GetLatestRevision()
+    let @* = system("git log -n 1 --pretty=format:%h -- " . expand('%'))
+    echom @*
+endfunction
+command! LR call GetLatestRevision()
+
 " airline
 Plugin 'bling/vim-airline'
 set laststatus=2
@@ -218,7 +224,6 @@ nnoremap <LEADER>r :reg <CR>
 nnoremap <LEADER>a za
 " No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
-nnoremap <C-B> :!python % <CR>
 nnoremap <LEADER>b :!./node-babel % <CR>
 " for constantly mistyping :w
 :command W w
