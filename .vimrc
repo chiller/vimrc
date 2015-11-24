@@ -232,6 +232,7 @@ vnoremap . :norm.<CR>
 
 " Startify
 let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
+let g:startify_change_to_dir = 0
 
 " Markdown
 let g:vim_markdown_folding_disabled=0
