@@ -69,14 +69,18 @@ set showtabline=0
 Plugin 'milkypostman/vim-togglelist'
 
 Plugin 'plasticboy/vim-markdown'
+" Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'mhinz/vim-startify'
 
 " slides - commands: PresentingStart n p q
 Plugin 'sotte/presenting.vim'
 Plugin 'kyuhi/vim-emoji-complete'
+Plugin 'tybenz/vimdeck'
 
 Plugin 'easymotion/vim-easymotion'
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
 Plugin 'isRuslan/vim-es6'
 " colorscheme monokai
 colorscheme sunburst
@@ -88,8 +92,9 @@ if has("persistent_undo")
     set undofile
 endif
 
-Plugin 'alfredodeza/chapa.vim'
-let g:chapa_default_mappings=1
+Plugin 'terryma/vim-expand-region'
+" Plugin 'alfredodeza/chapa.vim'
+" let g:chapa_default_mappings=1
 
 call vundle#end()
 filetype plugin indent on
@@ -126,7 +131,7 @@ set cursorline
 set showmatch
 set clipboard=unnamed
 set backspace=indent,eol,start
-set relativenumber
+" set relativenumber
 
 map <F4> :MRU<CR>
 nmap <F6> :Gblame<CR>
@@ -179,6 +184,15 @@ function! GetLatestRevision()
 endfunction
 command! LR call GetLatestRevision()
 
+function! GetPrForRevision()
+    " get commit hash for current line
+    let line=line('.')
+    let lhash = system("git blame " . expand('%'). " -L ".line ." | cut -d' ' -f1 | head -n 1 | tr -d '\n' ")
+    echom lhash
+    execute "!pr_for_sha " . lhash
+endfunction
+command! Openpr call GetPrForRevision()
+
 " airline
 Plugin 'bling/vim-airline'
 set laststatus=2
@@ -192,6 +206,13 @@ endfunction
 
 let g:airline_section_y = '%{Strip()}'
 let g:airline_mode_map = { '__' : '-', 'n'  : '🐔 ', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
+
+" html
+Plugin 'gregsexton/MatchTag'
+Plugin 'wikitopian/hardmode'
+Plugin 'kbarrette/mediummode'
+let g:mediummode_enabled = 1
+let g:mediummode_allowed_character_motions = 5
 
 " split - opposite of J (join)
 function! SplitOnComma()
@@ -208,6 +229,7 @@ endfunction
 
 nnoremap K :call SplitOnComma()<CR>
 
+
 " for easier split navigation
 nnoremap <SPACE>  <C-w>
 
@@ -221,7 +243,7 @@ nnoremap <SPACE>  <C-w>
 " Show content of registers
 nnoremap <LEADER>r :reg <CR>
 " Fold unfold
-nnoremap <LEADER>a za
+" nnoremap <LEADER>a za
 " No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
 nnoremap <LEADER>b :!./node-babel % <CR>
@@ -229,12 +251,19 @@ nnoremap <LEADER>b :!./node-babel % <CR>
 :command W w
 " For using . in visual mode
 vnoremap . :norm.<CR>
-
+" Ack word under cursor
+noremap <Leader>a :Ack <cword><cr>
 " Startify
 let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 let g:startify_change_to_dir = 0
 
 " Markdown
-let g:vim_markdown_folding_disabled=0
+let g:vim_markdown_folding_disabled=1
 autocmd FileType mkd normal zR
 autocmd FileType mkd.markdown normal zR
+
+let g:mediummode_allowed_motions = 5
+
+" Plugin 'maxbrunsfeld/vim-yankstack'
+" nmap <leader>p <Plug>yankstack_substitute_older_paste
+" nmap <leader>P <Plug>yankstack_substitute_newer_paste
