@@ -31,3 +31,10 @@ alias ge="git edit"
 alias gd="git diff"
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+GOPATH=/Users/endregalaczi/.go
+export GOPATH
+PATH=$PATH:$GOPATH/bin # Add GOPATH/bin to PATH for scripting
+
+
+HISTSIZE=10000
+HISTFILESIZE=20000
