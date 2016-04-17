@@ -54,6 +54,7 @@ Plugin 'sickill/vim-monokai'
 " colorscheme monokai
 colorscheme sunburst
 
+ab
 " Speeddating for incrementing dates
 Plugin 'tpope/vim-speeddating'
 " For linking in text
@@ -78,6 +79,7 @@ Plugin 'kyuhi/vim-emoji-complete'
 
 Plugin 'easymotion/vim-easymotion'
 Plugin 'isRuslan/vim-es6'
+Plugin 'lambdatoast/elm.vim'
 " colorscheme monokai
 colorscheme sunburst
 
@@ -116,7 +118,7 @@ set cursorline
 set showmatch
 set clipboard=unnamed
 set backspace=indent,eol,start
-set relativenumber
+" set relativenumber
 
 map <F4> :MRU<CR>
 nmap <F6> :Gblame<CR>
