@@ -231,9 +231,11 @@ let g:airline_mode_map = { '__' : '-', 'n'  : '🐔 ', 'i'  : 'I', 'R'  : 'R', '
 " html
 Plugin 'gregsexton/MatchTag'
 Plugin 'wikitopian/hardmode'
-Plugin 'kbarrette/mediummode'
+" Plugin 'kbarrette/mediummode'
 let g:mediummode_enabled = 1
 let g:mediummode_allowed_character_motions = 5
+Plugin '0x0dea/vim-molasses'
+let g:molasses_wait=500
 
 " split - opposite of J (join)
 function! SplitOnComma()
@@ -274,6 +276,11 @@ nnoremap <LEADER>b :!./node-babel % <CR>
 vnoremap . :norm.<CR>
 " Ack word under cursor
 noremap <Leader>a :Ack <cword><cr>
+" Jump to previous def
+noremap <Leader>d ?^ *def<cr>w
+" Replace word last searched for
+noremap <Leader>r :%s//
+
 " Startify
 let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 let g:startify_change_to_dir = 0
@@ -288,3 +295,11 @@ let g:mediummode_allowed_motions = 5
 " Plugin 'maxbrunsfeld/vim-yankstack'
 " nmap <leader>p <Plug>yankstack_substitute_older_paste
 " nmap <leader>P <Plug>yankstack_substitute_newer_paste
+
+"Rainbow parantheses
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+" Javascript sources
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
