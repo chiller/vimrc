@@ -139,7 +139,7 @@ set cursorline
 set showmatch
 set clipboard=unnamed
 set backspace=indent,eol,start
-" set relativenumber
+set relativenumber
 
 map <F4> :MRU<CR>
 nmap <F6> :Gblame<CR>
@@ -147,10 +147,23 @@ nnoremap <F5> :set relativenumber!<cr>
 nmap <F8> :noh<CR>
 
 " Disable arrow keys
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+function! DisableArrows()
+    map <Left> <Nop>
+    map <Right> <Nop>
+    map <Up> <Nop>
+    map <Down> <Nop>
+endfunction
+command! DisableArrows call DisableArrows()
+
+function! EnableArrows()
+    map <Left> <Left>
+    map <Right> <Right>
+    map <Up> <Up>
+    map <Down> <Down>
+endfunction
+command! EnableArrows call EnableArrows()
+
+call DisableArrows()
 
 " search settings
 set hlsearch
