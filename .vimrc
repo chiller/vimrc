@@ -98,6 +98,11 @@ Plugin 'terryma/vim-expand-region'
 " Plugin 'alfredodeza/chapa.vim'
 " let g:chapa_default_mappings=1
 
+Plugin 'kana/vim-textobj-user'
+Plugin 'bps/vim-textobj-python'
+xmap [f <Plug>(textobj-python-function-move-p)
+omap [f <Plug>(textobj-python-function-move-p)
+
 call vundle#end()
 filetype plugin indent on
 
@@ -106,6 +111,7 @@ set rtp+=/usr/local/Cellar/fzf/0.9.4-1
 set rtp+=/usr/local/Cellar/fzf/0.9.3
 set rtp+=~/.fzf
 nnoremap <C-p> :FZF<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -l --ignore=node_modules --ignore=ansible-playbooks'
 
 " Todo
 set rtp+=~/.vimrc/plugin
