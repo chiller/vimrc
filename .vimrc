@@ -70,8 +70,13 @@ set showtabline=0
 Plugin 'milkypostman/vim-togglelist'
 
 Plugin 'plasticboy/vim-markdown'
-" Plugin 'tpope/vim-markdown'
+
+" Surround with parans
+" VS[
+" ysiw[
+" cs'"
 Plugin 'tpope/vim-surround'
+
 Plugin 'mhinz/vim-startify'
 
 " slides - commands: PresentingStart n p q
