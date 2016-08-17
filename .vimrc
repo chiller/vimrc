@@ -330,3 +330,20 @@ map `` ysiw`
 map "" ysiw"
 map TT ebi{'<ESC>ea'}<ESC>
 
+
+"""""""""""""""""""""""
+""""""Haskell""""""""""
+"""""""""""""""""""""""
+
+" Syntax checking for haskell
+" do this first: stack install hdevtools
+Plugin 'scrooloose/syntastic'
+" HS import
+" stack install hsimport
+" may need to add this to extra deps ilist-0.2.0.0
+" hsimport needs to be on path
+" export PATH=/Users/endregalaczi/.local/bin:$PATH
+Plugin 'dan-t/vim-hsimport'
+autocmd FileType haskell nmap <silent> <F1> :silent update <bar> HsimportModule<CR>
+autocmd FileType haskell nmap <silent> <F2> :silent update <bar> HsimportSymbol<CR>
+
