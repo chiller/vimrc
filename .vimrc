@@ -86,6 +86,7 @@ Plugin 'tybenz/vimdeck'
 
 Plugin 'easymotion/vim-easymotion'
 nmap <Leader>f <Plug>(easymotion-overwin-f)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 Plugin 'isRuslan/vim-es6'
 Plugin 'lambdatoast/elm.vim'
@@ -234,12 +235,12 @@ let g:airline_section_y = '%{Strip()}'
 let g:airline_mode_map = { '__' : '-', 'n'  : '🐔 ', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
 
 " html
-Plugin 'gregsexton/MatchTag'
+" Plugin 'gregsexton/MatchTag'
 Plugin 'wikitopian/hardmode'
 " Plugin 'kbarrette/mediummode'
 let g:mediummode_enabled = 1
 let g:mediummode_allowed_character_motions = 5
-Plugin '0x0dea/vim-molasses'
+" Plugin '0x0dea/vim-molasses'
 let g:molasses_wait=500
 
 " split - opposite of J (join)
@@ -308,3 +309,8 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " Javascript sources
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+
+" Comments
+" visual select + gc
+Plugin 'tomtom/tcomment_vim'
+
