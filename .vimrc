@@ -314,3 +314,19 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " visual select + gc
 Plugin 'tomtom/tcomment_vim'
 
+" Plugin 'wookiehangover/jshint.vim'
+" let JSHintUpdateWriteOnly=1
+" let g:JSHintUpdateWriteOnly=1
+
+
+" Save buffer automatically when changing files
+set autowrite
+
+let g:EasyMotion_leader_key = '<leader>'
+
+" Insert ticks around word
+map tt ysiw'
+map `` ysiw`
+map "" ysiw"
+map TT ebi{'<ESC>ea'}<ESC>
+
