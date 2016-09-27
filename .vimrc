@@ -276,8 +276,8 @@ nnoremap <SPACE>  <C-w>
 " map { ? *def <cr> :noh <CR>
 
 " LEADER MAPPINGS
-let mapleader = "\<tab>"
-nmap \ <tab>
+" let mapleader = "\<tab>"
+" nmap \ <tab>
 " Show content of registers
 nnoremap <LEADER>r :reg <CR>
 " Fold unfold
