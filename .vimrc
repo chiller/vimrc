@@ -1,10 +1,3 @@
-" Use Vundle as plugin manager
-" 1.
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"
-" 2.
-" Launch vim and run :PluginInstall
-
 set nocompatible              " be iMproved, required
 set hidden
 filetype off                  " required
@@ -19,13 +12,45 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+
+"""""""""""""""""""""""
+""""""Git""""""""""""""
+"""""""""""""""""""""""
 Plugin 'airblade/vim-gitgutter'
-Plugin 'andviro/flake8-vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tommcdo/vim-fugitive-blame-ext'
+
+function! GetLatestRevision()
+    let @* = system("git log -n 1 --pretty=format:%h -- " . expand('%'))
+    echom @*
+endfunction
+command! LR call GetLatestRevision()
+
+function! GetPrForRevision()
+    " get commit hash for current line
+    let line=line('.')
+    let lhash = system("git blame " . expand('%'). " -L ".line ." | cut -d' ' -f1 | head -n 1 | tr -d '\n' ")
+    echom lhash
+    execute "!pr_for_sha " . lhash
+endfunction
+command! Openpr call GetPrForRevision()
+
+"""""""""""""""""""""""
+""""""General""""""""""
+"""""""""""""""""""""""
+
+Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'rbgrouleff/bclose.vim'
+
+"""""""""""""""""""""""
+""""""Python"""""""""""
+"""""""""""""""""""""""
+Plugin 'andviro/flake8-vim'
+Plugin 'bps/vim-textobj-python'
+xmap [f <Plug>(textobj-python-function-move-p)
+omap [f <Plug>(textobj-python-function-move-p)
+
 Plugin 'chase/vim-ansible-yaml'
 
 " Autocomplete and snippets
@@ -81,7 +106,6 @@ Plugin 'mhinz/vim-startify'
 
 " slides - commands: PresentingStart n p q
 Plugin 'sotte/presenting.vim'
-Plugin 'kyuhi/vim-emoji-complete'
 Plugin 'tybenz/vimdeck'
 
 Plugin 'easymotion/vim-easymotion'
@@ -105,9 +129,6 @@ Plugin 'terryma/vim-expand-region'
 " let g:chapa_default_mappings=1
 
 Plugin 'kana/vim-textobj-user'
-Plugin 'bps/vim-textobj-python'
-xmap [f <Plug>(textobj-python-function-move-p)
-omap [f <Plug>(textobj-python-function-move-p)
 
 call vundle#end()
 filetype plugin indent on
@@ -205,20 +226,6 @@ function! GetTestPath()
 endfunction
 command! GT call GetTestPath()
 
-function! GetLatestRevision()
-    let @* = system("git log -n 1 --pretty=format:%h -- " . expand('%'))
-    echom @*
-endfunction
-command! LR call GetLatestRevision()
-
-function! GetPrForRevision()
-    " get commit hash for current line
-    let line=line('.')
-    let lhash = system("git blame " . expand('%'). " -L ".line ." | cut -d' ' -f1 | head -n 1 | tr -d '\n' ")
-    echom lhash
-    execute "!pr_for_sha " . lhash
-endfunction
-command! Openpr call GetPrForRevision()
 
 " airline
 Plugin 'bling/vim-airline'
@@ -232,7 +239,7 @@ function! Strip()
 endfunction
 
 let g:airline_section_y = '%{Strip()}'
-let g:airline_mode_map = { '__' : '-', 'n'  : '🐔 ', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
+let g:airline_mode_map = { '__' : '-', 'n'  : 'λ', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C', 'v'  : 'V', 'V'  : 'V', '' : 'V', 's'  : 'S', 'S'  : 'S', '' : 'S', }
 
 " html
 " Plugin 'gregsexton/MatchTag'
@@ -269,13 +276,16 @@ nnoremap <SPACE>  <C-w>
 " map { ? *def <cr> :noh <CR>
 
 " LEADER MAPPINGS
+let mapleader = "\<tab>"
+nmap \ <tab>
 " Show content of registers
 nnoremap <LEADER>r :reg <CR>
 " Fold unfold
 " nnoremap <LEADER>a za
 " No idea
 nnoremap <LEADER>` I`<ESC>A`<ESC>^
-nnoremap <LEADER>b :!./node-babel % <CR>
+" for procurement
+nnoremap <LEADER><LEADER>b :!DEV_ENV=1 ./run.sh unittests run-contexts src --verbose <CR>
 " for constantly mistyping :w
 :command W w
 " For using . in visual mode
@@ -334,10 +344,33 @@ map TT ebi{'<ESC>ea'}<ESC>
 """""""""""""""""""""""
 """"""Haskell""""""""""
 """""""""""""""""""""""
-
+" http://www.stephendiehl.com/posts/vim_2016.html
+Plugin 'Shougo/vimproc.vim'
+Plugin 'eagletmt/ghcmod-vim'
 " Syntax checking for haskell
 " do this first: stack install hdevtools
+" :Errors shows the location window with a list of errors
+" :lnext cycles through the errors
 Plugin 'scrooloose/syntastic'
+map <Leader>s :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+autocmd FileType haskell echom " tw :GhcModTypeInsert ts :GhcModSplitFunCase tq :GhcModType te :GhcModTypeClear"
+
+nnoremap <F9> :lnext <cr>
+nnoremap <F10> :lnext <cr>
 " HS import
 " stack install hsimport
 " may need to add this to extra deps ilist-0.2.0.0
@@ -347,3 +380,6 @@ Plugin 'dan-t/vim-hsimport'
 autocmd FileType haskell nmap <silent> <F1> :silent update <bar> HsimportModule<CR>
 autocmd FileType haskell nmap <silent> <F2> :silent update <bar> HsimportSymbol<CR>
 
+command! -nargs=1 Silent
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'

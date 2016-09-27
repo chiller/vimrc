@@ -35,6 +35,9 @@ GOPATH=/Users/endregalaczi/.go
 export GOPATH
 PATH=$PATH:$GOPATH/bin # Add GOPATH/bin to PATH for scripting
 
-
 HISTSIZE=10000
 HISTFILESIZE=20000
+DEV_ENV=true
+
+
+# THis file does not seem to be called
