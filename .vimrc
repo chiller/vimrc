@@ -106,13 +106,13 @@ Plugin 'mhinz/vim-startify'
 
 " slides - commands: PresentingStart n p q
 Plugin 'sotte/presenting.vim'
-Plugin 'tybenz/vimdeck'
 
 Plugin 'easymotion/vim-easymotion'
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 Plugin 'isRuslan/vim-es6'
+" mark for deletion
 Plugin 'lambdatoast/elm.vim'
 " colorscheme monokai
 colorscheme sunburst
@@ -296,6 +296,10 @@ noremap <Leader>a :Ack <cword><cr>
 noremap <Leader>d ?^ *def<cr>w
 " Replace word last searched for
 noremap <Leader>r :%s//
+" Insert timestamp
+noremap <Leader>T :pu=strftime('%FT%T')<cr>
+noremap <Leader>tt :pu=strftime('%H:%M - %H:%M')<cr>
+noremap <Leader>t :pu=strftime('%H:%M')<cr>
 
 " Startify
 let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
@@ -341,6 +345,8 @@ map "" ysiw"
 map TT ebi{'<ESC>ea'}<ESC>
 
 
+" Highlight word under cursor
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 """""""""""""""""""""""
 """"""Haskell""""""""""
 """""""""""""""""""""""
@@ -380,6 +386,27 @@ Plugin 'dan-t/vim-hsimport'
 autocmd FileType haskell nmap <silent> <F1> :silent update <bar> HsimportModule<CR>
 autocmd FileType haskell nmap <silent> <F2> :silent update <bar> HsimportSymbol<CR>
 
+
+Plugin 'Twinside/vim-hoogle'
+
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
+
+
+
+"""""""""""""""""""""""
+""""""Typescript"""""""
+"""""""""""""""""""""""
+
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+
+
+Plugin 'leafgarland/typescript-vim'
+"
+"
+"""""""""""""""""""""""
+""""""GO"""""""""""""""
+"""""""""""""""""""""""
+
+Plugin 'fatih/vim-go'
