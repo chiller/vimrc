@@ -1,0 +1,10 @@
+set number relativenumber
+map <LEADER>f :action AceAction<CR>
+map <LEADER>F :action AceTargetAction<CR>
+
+map <C-SPACE> :action RecentFiles<CR>
+map <C-O> :action Back<CR>
+map <C-I> :action Forward<CR>
+
+" for easier split navigation
+nnoremap <SPACE>  <C-w>
