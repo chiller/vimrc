@@ -13,7 +13,7 @@ map <SPACE>k :action VimMotionPreviousTab<CR>
 " opens this file. source ~/vimrc/.ideavimrc to reload changes"
 map <LEADER>h :e ~/vimrc/.ideavimrc<CR>
 map <LEADER>o :action OptimizeImports<CR>
-map <LEADER>u :action CloseAllUnmodifiedEditors<CR>
+map <LEADER>u :action FindUsages<CR>
 " git annotate
 map <LEADER>g :action Annotate<CR>
 map <LEADER>c :action Compile<CR>
@@ -26,3 +26,13 @@ nnoremap <SPACE>  <C-w>
 " this seems to be the list of actions
 " https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
 " or :actionlist
+"
+"
+" allow 20 rows at the edge of the buffer when scrolling
+set so=10
+
+" highlight searches
+set hlsearch
+
+" ignore case when searching 
+set ignorecase
