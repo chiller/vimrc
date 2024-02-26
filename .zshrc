@@ -98,3 +98,7 @@ export PATH=~/Library/Python/2.7/bin:$PATH
 alias ttree="tree -I target"
 source .fzf.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+alias gap='git add -p'
+alias gs='git status'
+alias gb='git checkout $(git branch --sort=-committerdate| fzf-tmux -d 15)'
